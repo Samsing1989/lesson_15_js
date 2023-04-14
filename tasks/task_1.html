@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+  </head>
+
+  <body>
+    <h1>Задача 1</h1>
+    <p>
+      Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є
+      заєць і 0 в іншому випадку.
+    </p>
+    <table border="1">
+      <tr>
+        <th>Тир</th>
+      </tr>
+      <tr>
+        <td>Поля(властивості)</td>
+        <td>Масив, у якому зберігається поле з зайцями</td>
+      </tr>
+      <td>Методи (дії)</td>
+
+      <td>
+        Метод пострілу (задається позиція пострілу) Виведення ігрового поля
+      </td>
+    </table>
+    <script>
+      let tir = {
+        gameField: [1, 1, 1, 1, 1, 1],
+        Shoting: function shop() {
+          for (let i = 0; i < this.gameField.length; i++) {
+            let userShot = parseInt(
+              prompt(` Вистріл по полю - від 1 до  ${this.gameField.length}`)
+            )
+            this.gameField[userShot - 1] = 0
+          }
+        },
+      }
+      tir.Shoting()
+      document.write("Ви убили всіх заців")
+    </script>
+  </body>
+</html>

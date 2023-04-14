@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 5</title>
+  </head>
+
+  <body>
+    <h1>Задача 5</h1>
+    <p>Розробити клас «Керівник танців»</p>
+    <table border="1">
+      <tr>
+        <td>Поля</td>
+        <td>
+          Масив імен хлопців <br />
+          Масив імен дівчат
+        </td>
+      </tr>
+      <td>Методи</td>
+
+      <td>
+        Метод випадкового вибору імені хлопця<br />
+        Метод випадкового вибору імені дівчини<br />
+        Метод виведення пари для танців<br />
+        Метод run , який ініціює через кожні 5 секунд виведення нової пари для
+        танців
+      </td>
+    </table>
+
+    <script>
+      class HeadDances {
+        constructor() {
+          this.namesBoy = ["Petro", "Stepan", "Pavlo", "Stefan"]
+          this.namesGirls = ["Alla", "Olga", "Magda", "Marta"]
+        }
+        getRandomNamesBoy() {
+          let maxVal = this.namesBoy.length - 1
+          return Math.floor(Math.random() * (maxVal + 1))
+        }
+        getRandomNamesGirls() {
+          let maxVal = this.namesGirls.length - 1
+          return Math.floor(Math.random() * (maxVal + 1))
+        }
+        toString() {
+          return `пари для танців - ${
+            this.namesBoy[this.getRandomNamesBoy()]
+          } i ${this.namesGirls[this.getRandomNamesGirls()]}`
+        }
+        run() {
+          setInterval(() => {
+            alert(this.toString())
+          }, 5000)
+        }
+      }
+      let dances = new HeadDances()
+      dances.run()
+    </script>
+  </body>
+</html>

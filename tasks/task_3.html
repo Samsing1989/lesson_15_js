@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 3</title>
+  </head>
+
+  <body>
+    <h1>Задача 3</h1>
+    <p>Розробити клас MultChecker для перевірки таблиці множення</p>
+    <table border="1">
+      <tr>
+        <td>Поля</td>
+        <td>
+          Число, яке перевіряємо (наприклад, перевірка частини таблиці множення
+          на 7)<br />
+          Кількість правильних відповідей<br />
+          Кількість неправильних відповідей
+        </td>
+      </tr>
+      <td>Методи</td>
+
+      <td>
+        Генерування прикладу (метод випадковим чином визначає друге число, перше
+        число фіксоване)<br />
+        Перевірка правильності вказаної відповіді render - виведення інформації
+        про тестування на екран
+      </td>
+    </table>
+    <script>
+      class MultChecker {
+        constructor(number) {
+          this.number = number
+          this.answersCorrect = 0
+          this.answersWrong = 0
+        }
+        generation(minVal, maxVal) {
+          let randomNumber =
+            minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+
+          let userAnswers = parseInt(
+            prompt(`Який резельтат добутку ${this.number} * ${randomNumber}`)
+          )
+          let res = this.number * randomNumber
+          return [userAnswers, res]
+        }
+        validetionAnswers(min, max) {
+          for (let i = 0; i < 5; i++) {
+            let tmp = this.generation(min, max)
+            if (tmp[0] === tmp[1]) this.answersCorrect++
+            else this.answersWrong++
+          }
+        }
+        output() {
+          document.write(`
+			 правильна відповіть - ${this.answersCorrect}<br>
+			 не правильно - ${this.answersWrong}`)
+        }
+      }
+      let obj = new MultChecker(5)
+      obj.validetionAnswers(1, 10)
+      obj.output()
+    </script>
+  </body>
+</html>

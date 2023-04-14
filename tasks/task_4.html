@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 4</title>
+  </head>
+
+  <body>
+    <h1>Задача 4</h1>
+    <p>Розробити клас Baner</p>
+    <table border="1">
+      <tr>
+        <td>Поля</td>
+        <td>Масив об’єктів ( графічних зображень та посилань на сайти)</td>
+      </tr>
+      <td>Методи</td>
+      <img src="/img/image_1.jpg" alt="" />
+      <td>
+        Метод випадкового вибору об’єкта (графічного зображення та посилання)<br />
+        Метод виведення випадкового банера
+      </td>
+    </table>
+    <script>
+      class Baner {
+        constructor(baner, link) {
+          this.baner = baner
+          this.link = link
+        }
+        getRandom(minVal, maxVal) {
+          return minVal + Math.floor(Math.random() * (maxVal - minVal + 1))
+        }
+        toString() {
+          return `<a href="${this.link}"> <img src="/${this.baner}" alt="img" /></a>`
+        }
+      }
+      let list = [
+        (banerList1 = new Baner(
+          `img/image_2.jpg`,
+          `https://www.google.com.ua`
+        )),
+        (banerList2 = new Baner(
+          `img/image_3.jpg`,
+          `https://www.google.com.ua`
+        )),
+        (banerList3 = new Baner(
+          `img/image_4.jpg`,
+          `https://www.google.com.ua`
+        )),
+        (banerList4 = new Baner(
+          `img/image_5.jpg`,
+          `https://www.google.com.ua`
+        )),
+      ]
+      let num = list[0].getRandom(0, list.length - 1)
+      document.write(list[num])
+    </script>
+  </body>
+</html>
